@@ -7,6 +7,12 @@ sudo: required
 
 dist: xenial
 
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
+    update: true
+
 install:
   - travis_retry composer install --no-interaction --prefer-dist
   - yarn install
