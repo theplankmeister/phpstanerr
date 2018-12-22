@@ -1,0 +1,16 @@
+language: php
+
+php:
+  - 7.2
+
+sudo: required
+
+dist: xenial
+
+install:
+  - travis_retry composer install --no-interaction --prefer-dist
+  - yarn install
+
+script:
+  - npx cypress run
+  - vendor/bin/phpstan analyse -l max src/
