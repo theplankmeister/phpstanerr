@@ -17,6 +17,9 @@ install:
   - travis_retry composer install --no-interaction --prefer-dist
   - yarn install
 
+before_script:
+  - bin/console server:run  > /dev/null 2>&1 &
+
 script:
   - npx cypress run
   - vendor/bin/phpstan analyse -l max src/
